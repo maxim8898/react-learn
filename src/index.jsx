@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Hello } from "./Hello.jsx";
+import { SearchBlock } from "./SearchBlock";
 
 class SearchForm extends React.Component {
     constructor(props) {
@@ -60,3 +61,4 @@ function Root() {
 }
 
 ReactDOM.render(<Root />, document.getElementById("root"));
+ReactDOM.render(<SearchBlock />, document.getElementById("test"));
