@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Hello } from "./Hello.jsx";
 
 class SearchForm extends React.Component {
     constructor(props) {
@@ -46,16 +47,6 @@ class Message extends React.PureComponent {
                 <p>{this.props.msg}</p>
             </div>
         );
-    }
-}
-
-class Hello extends React.PureComponent {
-    render() {
-        return (
-            <div className="hello-world">
-                <h1>{this.props.header}</h1>
-            </div>
-        )
     }
 }
 
