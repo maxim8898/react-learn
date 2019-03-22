@@ -1,16 +1,24 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { Header } from "./Header";
+import { SearchBySwitch } from "./SearchBySwitch";
 
-class SearchBlock extends React.PureComponent {
+export class SearchBlock extends React.PureComponent {
     render() {
         return (
-            <div>
-                <h1>Hi</h1>
+            <div className="search-block">
                 <Header classes={"title-search"} title={"Find your movie"}/>
+                <SearchInput placeholder="Quentin Tarantino" />
+                <SearchBySwitch/>
             </div>
         )
     }
 }
 
-//ReactDOM.render(<SearchBlock />, document.getElementById("test"));
+function SearchInput(props) {
+    return (
+      <form>
+          <input type="search" placeholder={props.placeholder}/>
+          <input type="submit" value="Search"/>
+      </form>
+    );
+}

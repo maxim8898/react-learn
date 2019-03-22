@@ -1,6 +1,6 @@
 import React from "react";
 
-class Header extends React.Component {
+export class Header extends React.PureComponent {
     render() {
         return (
             <h2 className={this.props.classes}>

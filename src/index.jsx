@@ -60,5 +60,5 @@ function Root() {
     );
 }
 
-ReactDOM.render(<Root />, document.getElementById("root"));
-ReactDOM.render(<SearchBlock />, document.getElementById("test"));
+//ReactDOM.render(<Root />, document.getElementById("root"));
+ReactDOM.render(<SearchBlock />, document.getElementById("header"));
