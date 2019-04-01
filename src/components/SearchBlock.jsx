@@ -1,14 +1,19 @@
 import React from "react";
-import { Header } from "./Header";
-import { SearchBySwitch } from "./SearchBySwitch";
+import { Switcher } from "./Switcher";
 
 export class SearchBlock extends React.PureComponent {
     render() {
         return (
             <div className="search-block">
-                <Header classes={"title-search"} title={"Find your movie"}/>
+                <div className={"search-block-title"}>Find your movie</div>
                 <SearchInput placeholder="Quentin Tarantino" />
-                <SearchBySwitch/>
+                <Switcher
+                    label={"Search by"}
+                    containerClass={"search-by-block"}
+                    classes={"search-by"}
+                    checked={"title"}
+                    options={["title", "genre"]}
+                />
             </div>
         )
     }

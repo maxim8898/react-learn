@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Header } from "./components/Header";
 import { Content } from "./components/Content";
+import { FilmBlock } from "./components/FilmBlock";
 import './css/base.css';
 
 class Main extends React.Component{
@@ -12,7 +12,7 @@ class Main extends React.Component{
     render() {
         return(
             <React.Fragment>
-                <Header/>
+                <FilmBlock data={this.mockData.data[3]}/>
                 <Content data={this.mockData.data}/>
                 <div className="footer">netflixroulette</div>
             </React.Fragment>
