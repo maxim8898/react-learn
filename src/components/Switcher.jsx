@@ -3,15 +3,11 @@ import React from "react";
 export class Switcher extends React.PureComponent {
     constructor(props) {
         super(props);
-        this.state = {
-            checked: props.checked,
-            options: props.options
-        };
         this.onClickButton = this.onClickButton.bind(this);
     }
 
     onClickButton(name) {
-        this.setState({ checked: name });
+        this.props.onSwitch(name);
     }
 
     render() {
@@ -19,12 +15,13 @@ export class Switcher extends React.PureComponent {
             <div className={this.props.containerClass}>
                 <div className={"label"}>{this.props.label}</div>
                 {
-                    this.state.options ?
+                    this.props.options ?
                     <div className={this.props.classes}>
-                        {this.state.options.map(
+                        {this.props.options.map(
                             option => <SwitchButton
-                                checked={ this.state.checked === option ? "checked" : "unchecked" }
+                                checked={ this.props.checked === option ? "checked" : "unchecked" }
                                 onClick={ (function() {this.onClickButton(option)}).bind(this) }
+                                option={option}
                                 value={option}/>
                         )}
                     </div> : <div>Empty</div>
