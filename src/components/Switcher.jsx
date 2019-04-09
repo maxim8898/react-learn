@@ -1,39 +1,51 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
-export class Switcher extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.onClickButton = this.onClickButton.bind(this);
-    }
-
-    onClickButton(name) {
-        this.props.onSwitch(name);
-    }
-
-    render() {
-        return(
-            <div className={this.props.containerClass}>
-                <div className={"label"}>{this.props.label}</div>
-                {
-                    this.props.options ?
-                    <div className={this.props.classes}>
-                        {this.props.options.map(
-                            option => <SwitchButton
-                                checked={ this.props.checked === option ? "checked" : "unchecked" }
-                                onClick={ (function() {this.onClickButton(option)}).bind(this) }
+export function Switcher(props) {
+    return(
+        <div className={props.containerClass}>
+            <div className={"label"}>{props.label}</div>
+            {
+                props.options ?
+                <div className={props.classes}>
+                    {
+                        props.options.map(
+                            (option, i) => <SwitchButton
+                                key={i.toString()}
+                                checked={props.checked === option ? "checked" : "unchecked"}
+                                onClick={(function () {
+                                    props.onSwitch(option)
+                                }).bind(this)}
                                 option={option}
                                 value={option}/>
-                        )}
-                    </div> : <div>Empty</div>
-                }
-            </div>
-        )
-    }
-
+                        )
+                    }
+                </div> : <div>Empty</div>
+            }
+        </div>
+    )
 }
+
+Switcher.propTypes = {
+    onSwitch: PropTypes.func.isRequired,
+    options: PropTypes.array.isRequired,
+    checked: PropTypes.string.isRequired,
+    containerClass: PropTypes.string,
+    classes: PropTypes.string,
+};
+Switcher.defaultProps = {
+    containerClass: "",
+    classes: "",
+};
 
 function SwitchButton(props) {
     return (
         <button className={ props.checked } onClick={ props.onClick }>{ props.value }</button>
     )
 }
+
+SwitchButton.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    checked: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+};

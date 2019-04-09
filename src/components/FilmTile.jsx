@@ -1,18 +1,20 @@
 import React from "react"
+import PropTypes from 'prop-types';
 
-export class FilmTile extends React.PureComponent {
-    constructor(props) {
-        super (props);
-    }
-
-    render() {
-        return(
-            <div className={"film-tile"}>
-                <img src={this.props.img}/>
-                <div className={"film-name"}>{this.props.name}</div>
-                <div className={"film-year"}>{this.props.year}</div>
-                <div className={"film-genre"}>{this.props.genre}</div>
-            </div>
-        )
-    }
+export function FilmTile(props) {
+    return(
+        <div className={"film-tile"}>
+            <img src={props.img}/>
+            <div className={"film-name"}>{props.name}</div>
+            <div className={"film-year"}>{props.year}</div>
+            <div className={"film-genre"}>{props.genre}</div>
+        </div>
+    )
 }
+
+FilmTile.propTypes = {
+    img: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+    genre: PropTypes.string.isRequired,
+};

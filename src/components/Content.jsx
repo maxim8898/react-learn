@@ -1,19 +1,25 @@
 import React from "react";
 import { FilmTile } from "./FilmTile";
+import PropTypes from 'prop-types';
 
-export class Content extends React.PureComponent {
-    render() {
-        return(
-            <div className={"content"}>
-                {this.props.data.map(
-                    film => <FilmTile
-                        img={film.poster_path}
-                        name={film.title}
-                        year={film.release_date}
-                        genre={film.genres[0]}
-                    />
-                )}
-            </div>
-        )
-    }
+export function Content(props){
+    return(
+        <div className={"content"} key={"content"}>
+            {
+                props.data.map(
+                    (film, i) => <FilmTile
+                            key={i.toString()}
+                            img={film.poster_path}
+                            name={film.title}
+                            year={Number(film.release_date)}
+                            genre={film.genres[0]}
+                        />
+                    )
+            }
+        </div>
+    )
 }
+
+Content.propTypes = {
+    data: PropTypes.array.isRequired
+};

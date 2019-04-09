@@ -32,6 +32,7 @@ class Main extends React.Component{
     }
 
     onChangeQuery(query) {
+        query = query.target.value;
         this.setState({query: query});
     }
 

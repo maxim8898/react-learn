@@ -1,46 +1,36 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { SearchBlock } from "./SearchBlock";
 import { Sorter } from "./Sorter";
 
-export class Header extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.onChangeQuery = this.onChangeQuery.bind(this);
-        this.onChangeSearchBy = this.onChangeSearchBy.bind(this);
-        this.onChangeSortBy = this.onChangeSortBy.bind(this);
-    }
-
-    onChangeSearchBy(name) {
-        this.props.onChangeSearchBy(name);
-    }
-
-    onChangeSortBy(name) {
-        this.props.onChangeSortBy(name);
-    }
-
-    onChangeQuery(query) {
-        this.props.onChangeQuery(query);
-    }
-
-    render() {
-        return (
-            <React.Fragment>
-                <div className={"search-container"}>
-                    <SearchBlock
-                        onChangeQuery={this.onChangeQuery}
-                        onSwitch={this.onChangeSearchBy}
-                        query={this.props.query}
-                        search_by={this.props.search_by}
-                    />
-                </div>
-                <div className={"highlighted"}>
-                    <Sorter
-                        onSwitch={this.onChangeSortBy}
-                        sort_by={this.props.sort_by}
-                        number={this.props.number}
-                    />
-                </div>
-            </React.Fragment>
-        )
-    }
+export function Header(props) {
+    return (
+        <React.Fragment>
+            <div className={"search-container"}>
+                <SearchBlock
+                    onChangeQuery={props.onChangeQuery}
+                    onSwitch={props.onChangeSearchBy}
+                    query={props.query}
+                    search_by={props.search_by}
+                />
+            </div>
+            <div className={"highlighted"}>
+                <Sorter
+                    onSwitch={props.onChangeSortBy}
+                    sort_by={props.sort_by}
+                    number={props.number}
+                />
+            </div>
+        </React.Fragment>
+    )
 }
+
+Header.propTypes = {
+    onChangeQuery: PropTypes.func.isRequired,
+    onChangeSearchBy: PropTypes.func.isRequired,
+    onChangeSortBy: PropTypes.func.isRequired,
+    query: PropTypes.string.isRequired,
+    search_by: PropTypes.string.isRequired,
+    sort_by: PropTypes.string.isRequired,
+    number: PropTypes.number.isRequired,
+};

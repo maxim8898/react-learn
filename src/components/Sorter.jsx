@@ -1,32 +1,21 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Switcher } from "./Switcher";
 
-export class Sorter extends React.PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {number: this.props.number};
-        this.onSwitch = this.onSwitch.bind(this);
-    }
-
-    onSwitch(name) {
-        this.props.onSwitch(name);
-    }
-
-    render() {
-        return (
-            <React.Fragment>
-                <Founded number={this.state.number}/>
-                <Switcher
-                    onSwitch={this.onSwitch}
-                    label={"Sort by"}
-                    containerClass={"sort-by-block"}
-                    classes={"sort-by"}
-                    checked={this.props.sort_by}
-                    options={["release date", "rating"]}
-                />
-            </React.Fragment>
-        )
-    }
+export function Sorter(props) {
+    return (
+        <React.Fragment>
+            <Founded number={props.number}/>
+            <Switcher
+                onSwitch={props.onSwitch}
+                label={"Sort by"}
+                containerClass={"sort-by-block"}
+                classes={"sort-by"}
+                checked={props.sort_by}
+                options={["release date", "rating"]}
+            />
+        </React.Fragment>
+    )
 }
 
 function Founded(props) {
@@ -36,3 +25,9 @@ function Founded(props) {
         </div>
     )
 }
+
+Sorter.propTypes = {
+    onSwitch: PropTypes.func.isRequired,
+    sort_by: PropTypes.string.isRequired,
+    number: PropTypes.number.isRequired,
+};
