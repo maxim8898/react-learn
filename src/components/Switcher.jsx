@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import { SwitchButton } from "./SwitchButton";
 
 export function Switcher(props) {
     return(
@@ -9,16 +10,20 @@ export function Switcher(props) {
                 props.options ?
                 <div className={props.classes}>
                     {
-                        props.options.map(
-                            (option, i) => <SwitchButton
-                                key={i.toString()}
-                                checked={props.checked === option ? "checked" : "unchecked"}
-                                onClick={(function () {
-                                    props.onSwitch(option)
-                                }).bind(this)}
-                                option={option}
-                                value={option}/>
-                        )
+                        props.options.map(function(option, i) {
+                            const checked = props.checked === option ? "checked" : "unchecked";
+                            return(
+                                <SwitchButton
+                                    checked={checked}
+                                    key={i.toString()}
+                                    onClick={(function () {
+                                        props.onSwitch(option)
+                                    }).bind(this)}
+                                    option={option}
+                                    value={option}
+                                />
+                            )
+                        })
                     }
                 </div> : <div>Empty</div>
             }
@@ -27,25 +32,13 @@ export function Switcher(props) {
 }
 
 Switcher.propTypes = {
+    checked: PropTypes.string.isRequired,
+    classes: PropTypes.string,
+    containerClass: PropTypes.string,
     onSwitch: PropTypes.func.isRequired,
     options: PropTypes.array.isRequired,
-    checked: PropTypes.string.isRequired,
-    containerClass: PropTypes.string,
-    classes: PropTypes.string,
 };
 Switcher.defaultProps = {
-    containerClass: "",
     classes: "",
-};
-
-function SwitchButton(props) {
-    return (
-        <button className={ props.checked } onClick={ props.onClick }>{ props.value }</button>
-    )
-}
-
-SwitchButton.propTypes = {
-    onClick: PropTypes.func.isRequired,
-    checked: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    containerClass: "",
 };

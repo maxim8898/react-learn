@@ -8,13 +8,13 @@ export function Content(props){
             {
                 props.data.map(
                     (film, i) => <FilmTile
-                            key={i.toString()}
-                            img={film.poster_path}
-                            name={film.title}
-                            year={Number(film.release_date)}
-                            genre={film.genres[0]}
-                        />
-                    )
+                        genre={film.genres[0]}
+                        img={film.poster_path}
+                        key={i.toString()}
+                        name={film.title}
+                        year={Number(film.release_date)}
+                    />
+                )
             }
         </div>
     )

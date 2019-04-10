@@ -13,8 +13,8 @@ export function FilmTile(props) {
 }
 
 FilmTile.propTypes = {
+    genre: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     year: PropTypes.number.isRequired,
-    genre: PropTypes.string.isRequired,
 };

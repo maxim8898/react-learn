@@ -1,12 +1,16 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { Switcher } from "./Switcher";
+import { SearchInput } from "./SearchInput";
 
 export function SearchBlock(props) {
     return (
         <div className="search-block">
             <div className={"search-block-title"}>Find your movie</div>
-            <SearchInput placeholder="Quentin Tarantino" query={props.query} onChangeQuery={props.onChangeQuery}/>
+            <SearchInput
+                onChangeQuery={props.onChangeQuery}
+                placeholder="Quentin Tarantino"
+                query={props.query}/>
             <Switcher
                 onSwitch={props.onSwitch}
                 label={"Search by"}
@@ -19,24 +23,9 @@ export function SearchBlock(props) {
     )
 }
 
-function SearchInput(props){
-    return (
-        <form>
-            <input type="search" placeholder={props.placeholder} value={props.query} onChange={props.onChangeQuery}/>
-            <input type="submit" value="Search"/>
-        </form>
-    );
-}
-
 SearchBlock.propTypes = {
     onChangeQuery: PropTypes.func.isRequired,
     onSwitch: PropTypes.func.isRequired,
     query: PropTypes.string.isRequired,
     search_by: PropTypes.string.isRequired,
-};
-
-SearchInput.propTypes = {
-    onChangeQuery: PropTypes.func.isRequired,
-    query: PropTypes.string.isRequired,
-    placeholder: PropTypes.string.isRequired,
 };
