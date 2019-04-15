@@ -4,7 +4,8 @@
   "description": "This is project for second home task.",
   "main": "index.jsx",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watchAll",
+    "test:coverage": "jest --coverage",
     "build": "webpack",
     "dev-build": "set NODE_ENV=development&&webpack",
     "prod-build": "set NODE_ENV=production&&webpack",

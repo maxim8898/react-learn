@@ -32,5 +32,5 @@ export function FilmBlock(props) {
 }
 
 FilmBlock.propTypes = {
-    data: PropTypes.array.isRequired
+    data: PropTypes.object.isRequired
 };
