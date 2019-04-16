@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 export function SwitchButton(props) {
     return (
-        <button className={ props.checked } onClick={ props.onClick }>{ props.value }</button>
+        <button
+            className={ props.checked }
+            onClick={ props.onClick }
+        >{ props.value }</button>
     )
 }
 
