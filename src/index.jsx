@@ -1,8 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { createStore } from "redux";
+import { app } from "./reducers/reducers";
 import { Header } from "./components/Header";
 import { Content } from "./components/Content";
 import './css/base.css';
+
+let store = createStore(app);
 
 class Main extends React.Component{
     constructor(props) {
