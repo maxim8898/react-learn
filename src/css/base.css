@@ -12,6 +12,14 @@ h2 {
     display: grid;
     justify-content: space-between;
     grid-template-columns: repeat(auto-fill, 220px);
+    min-height: calc(100vh - 80px);
+}
+
+.content.no-films {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
 }
 
 .film-tile {
@@ -67,7 +75,7 @@ h2 {
     border: none;
     border-bottom: 1px solid #EE5766;
 }
-.search-block form [type='submit'] {
+.search-submit {
     float: right;
     margin-top: 20px;
     background: #EE5766;
