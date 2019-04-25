@@ -17,6 +17,10 @@ module.exports = {
         {
           test: /\.jsx?$/,
           loader: "babel-loader",
+        },
+        {
+          test: /\.css$/,
+          use: ["style-loader", "css-loader"]
         }
       ]
     },
@@ -33,6 +37,10 @@ module.exports = {
             template: "./index.html"
         })
     ],
+
+    performance: {
+        hints: false
+    },
 
     watch: false
 };

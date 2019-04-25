@@ -1,62 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Hello } from "./Hello.jsx";
+import thunk from 'redux-thunk';
+import { createStore, applyMiddleware } from "redux";
+import app from "./reducers/reducers";
+import './css/base.css';
+import { Provider } from 'react-redux';
+import HeaderContainer from './containers/HeaderContainer';
+import ContentContainer from './containers/ContentContainer';
 
-class SearchForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { keywords: "React", msg: "Default message" };
-        this.onKeywordsChange = this.onKeywordsChange.bind(this);
-        this.onSendClick = this.onSendClick.bind(this);
-    }
-    onSendClick(event) {
-        this.setState({ msg: this.state.keywords });
-    }
-    onKeywordsChange(event) {
-        this.setState({ keywords: event.target.value });
-    }
-    render() {
-        return (
-            <div className="form-inline">
-                <input
-                    type="text"
-                    name="login"
-                    placeholder={this.state.keywords}
-                    onChange={this.onKeywordsChange}
-                    className="form-control"
-                />
-                <button
-                    className="btn btn-primary"
-                    type="input"
-                    onClick={this.onSendClick}
-                >
-                    Send
-                </button>
-                <br />
-                <br />
-                <Message msg={this.state.msg} />
-            </div>
-        );
-    }
+let store = createStore(
+    app,
+    {},
+    applyMiddleware(thunk)
+);
+
+function Main() {
+    return (
+        <Provider store={store}>
+            <HeaderContainer/>
+            <ContentContainer/>
+            <div className="footer">netflixroulette</div>
+        </Provider>
+    )
 }
 
-class Message extends React.PureComponent {
-    render() {
-        return (
-            <div className="message">
-                <p>{this.props.msg}</p>
-            </div>
-        );
-    }
-}
-
-function Root() {
-    return React.createElement(
-        "div",
-        { className: "container" },
-        <Hello header="React Learning!"/>,
-        <SearchForm />
-    );
-}
-
-ReactDOM.render(<Root />, document.getElementById("root"));
+ReactDOM.render(<Main />, document.getElementById("root"));
