@@ -1,26 +1,17 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { Switcher } from "./Switcher";
 import { Founded } from "./Founded";
+import SortSwitcher from "../containers/SortSwitcher";
 
 export function Sorter(props) {
     return (
         <React.Fragment>
             <Founded number={props.number}/>
-            <Switcher
-                checked={props.sort_by}
-                classes={"sort-by"}
-                containerClass={"sort-by-block"}
-                label={"Sort by"}
-                onSwitch={props.onSwitch}
-                options={["release date", "rating"]}
-            />
+            <SortSwitcher />
         </React.Fragment>
     )
 }
 
 Sorter.propTypes = {
     number: PropTypes.number.isRequired,
-    onSwitch: PropTypes.func.isRequired,
-    sort_by: PropTypes.string.isRequired,
 };

@@ -17,8 +17,8 @@ describe("SearchBlock component", () =>{
             <SearchBlock {...props}/>
         );
         expect(component.find(".search-block").find(".search-block-title")).toHaveLength(1);
-        expect(component.find(".search-block").find("SearchInput")).toHaveLength(1);
-        expect(component.find(".search-block").find("Switcher")).toHaveLength(1);
+        expect(component.find(".search-block").find("Connect(SearchInput)")).toHaveLength(1);
+        expect(component.find(".search-block").find("Connect(Switcher)")).toHaveLength(1);
     });
 
     it("Snapshot", () => {

@@ -21,4 +21,11 @@ describe("Content component", () => {
         );
         expect(component).toMatchSnapshot();
     });
+
+    it("Content component rendered", () => {
+        const component = shallow(
+            <Content data={[]}/>
+        );
+        expect(component.find(".no-films")).toHaveLength(1);
+    });
 });

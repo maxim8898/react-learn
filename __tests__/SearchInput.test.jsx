@@ -14,7 +14,8 @@ describe('SearchInput component', () => {
         const component = shallow(
             <SearchInput {...props}/>
         );
-        expect(component.find("input")).toHaveLength(2);
+        expect(component.find("input")).toHaveLength(1);
+        expect(component.find("button")).toHaveLength(1);
     });
 
     it('Snapshot', () => {

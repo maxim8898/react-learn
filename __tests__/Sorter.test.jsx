@@ -15,7 +15,7 @@ describe("Sorter component", () => {
             <Sorter {...props}/>
         );
         expect(component.find("Founded")).toHaveLength(1);
-        expect(component.find("Switcher")).toHaveLength(1);
+        expect(component.find("Connect(Switcher)")).toHaveLength(1);
     });
 
     it("Snapshot", () => {
