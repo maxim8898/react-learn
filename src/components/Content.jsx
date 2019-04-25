@@ -3,7 +3,8 @@ import { FilmTile } from "./FilmTile";
 import PropTypes from 'prop-types';
 
 export function Content(props){
-    const sorted = props.data.sort((x, y) => { return x > y ? 1 : -1});
+    const param = props.sort_by === 'rating' ? 'vote_average' : 'release_date';
+    const sorted = props.data.sort((x, y) => { return x[param] > y[param] ? 1 : -1});
     return(
             sorted.length ?
                 <div className={"content"} key={"content"}>
