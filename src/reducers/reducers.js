@@ -9,7 +9,16 @@ const initialFinding = {
 function found(state = {}, action) {
     switch (action.type) {
         case reducerConstants.FETCH_FILMS:
-            return { all: action.payload.data };
+            return {
+                ...state,
+                all: action.payload.data
+            };
+
+        case reducerConstants.FETCH_FILMS_BY_ID:
+            return {
+                ...state,
+                selected: action.payload
+            };
 
         default:
             return state;

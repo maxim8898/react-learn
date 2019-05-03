@@ -42,5 +42,9 @@ module.exports = {
         hints: false
     },
 
+    devServer: {
+        historyApiFallback: true
+    },
+
     watch: false
 };

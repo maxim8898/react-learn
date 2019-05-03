@@ -7,6 +7,7 @@ import './css/base.css';
 import { Provider } from 'react-redux';
 import HeaderContainer from './containers/HeaderContainer';
 import ContentContainer from './containers/ContentContainer';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 let store = createStore(
     app,
@@ -16,11 +17,13 @@ let store = createStore(
 
 function Main() {
     return (
-        <Provider store={store}>
-            <HeaderContainer/>
-            <ContentContainer/>
-            <div className="footer">netflixroulette</div>
-        </Provider>
+        <Router>
+            <Provider store={store}>
+                <HeaderContainer/>
+                <ContentContainer/>
+                <div className="footer">netflixroulette</div>
+            </Provider>
+        </Router>
     )
 }
 

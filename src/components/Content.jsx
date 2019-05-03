@@ -1,6 +1,7 @@
 import React from "react";
 import { FilmTile } from "./FilmTile";
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 export function Content(props){
     const param = props.sort_by === 'rating' ? 'vote_average' : 'release_date';
@@ -10,13 +11,20 @@ export function Content(props){
                 <div className={"content"} key={"content"}>
                     {
                         sorted.map(
-                            (film, i) => <FilmTile
-                                genre={film.genres.join(", ")}
-                                img={film.poster_path}
-                                key={i.toString()}
-                                name={film.title}
-                                year={Number(film.release_date.split("-")[0])}
-                            />
+                            (film, i) =>
+                                <NavLink
+                                    to={`/film/${film.id}`}
+                                    key={i.toString()}
+                                    onClick={(function () {
+                                        props.onClick(film.id)
+                                    }).bind(this)}>
+                                    <FilmTile
+                                        genre={film.genres.join(", ")}
+                                        img={film.poster_path}
+                                        name={film.title}
+                                        year={Number(film.release_date.split("-")[0])}
+                                    />
+                                </NavLink>
                         )
                     }
                 </div>
