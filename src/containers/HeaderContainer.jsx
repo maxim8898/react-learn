@@ -2,16 +2,14 @@ import { connect } from 'react-redux';
 import { Header } from "../components/Header";
 
 const mapStateToProps = (state) => {
-    const film_length = state.found.all ? state.found.all.length : 0;
-    return {
-        number: film_length,
-        data: state.found.all,
-        selected: state.found.selected
-    }
+  const film_length = state.found.all ? state.found.all.length : 0;
+  return {
+    number: film_length,
+    data: state.found.all,
+    selected: state.found.selected
+  }
 };
 
 export default connect(
-    mapStateToProps
+  mapStateToProps
 )(Header);
-
-

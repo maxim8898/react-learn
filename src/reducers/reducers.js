@@ -2,9 +2,9 @@ import { combineReducers } from "redux";
 import * as reducerConstants from '../constants/reducerConstants';
 
 const initialFinding = {
-        query: "",
-        search_by: "title"
-    };
+    query: "",
+    search_by: "title"
+};
 
 function found(state = {}, action) {
     switch (action.type) {
@@ -43,7 +43,7 @@ function finding(state = initialFinding, action) {
     }
 }
 
-function showing(state = {sort_by: "rating", displayMode: reducerConstants.SEARCH_MODE}, action) {
+function showing(state = { sort_by: "rating", displayMode: reducerConstants.SEARCH_MODE }, action) {
     switch (action.type) {
         case reducerConstants.CHANGE_SORT_BY:
             return {

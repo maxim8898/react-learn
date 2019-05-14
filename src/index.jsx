@@ -10,21 +10,21 @@ import ContentContainer from './containers/ContentContainer';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 let store = createStore(
-    app,
-    {},
-    applyMiddleware(thunk)
+  app,
+  {},
+  applyMiddleware(thunk)
 );
 
 function Main() {
-    return (
-        <Router>
-            <Provider store={store}>
-                <HeaderContainer/>
-                <ContentContainer/>
-                <div className="footer">netflixroulette</div>
-            </Provider>
-        </Router>
-    )
+  return (
+    <Router>
+      <Provider store={store}>
+        <HeaderContainer />
+        <ContentContainer />
+        <div className="footer">netflixroulette</div>
+      </Provider>
+    </Router>
+  )
 }
 
 ReactDOM.render(<Main />, document.getElementById("root"));

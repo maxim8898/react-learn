@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 h2 {
     color: white;
     text-transform: uppercase;
@@ -26,9 +27,7 @@ h2 {
     margin: 0 10px;
     display: grid;
     grid-template-rows: auto;
-    grid-template-areas: "img img"
-                         "name year"
-                         "genre genre";
+    grid-template-areas: "img img" "name year" "genre genre";
 }
 
 .film-tile img {
@@ -75,6 +74,7 @@ h2 {
     border: none;
     border-bottom: 1px solid #EE5766;
 }
+
 .search-submit {
     float: right;
     margin-top: 20px;
@@ -107,7 +107,7 @@ h2 {
     font-size: 14px;
 }
 
-.search-by-block .search-by button{
+.search-by-block .search-by button {
     outline: none;
     color: #ffffff;
     margin-left: 15px;
@@ -182,7 +182,6 @@ h2 {
 .film-container .film-description {
     color: #d2d2d2;
 }
-
 
 .highlighted {
     padding: 0 15%;
