@@ -40,8 +40,6 @@ export default function serverRenderer() {
       />
     );
 
-    renderToString(renderRoot());
-
     if (context.url) {
       res.writeHead(302, {
         Location: context.url,
