@@ -1,4 +1,3 @@
-import fetch from 'cross-fetch';
 import * as reducerConstants from '../constants/reducerConstants';
 
 export function fetchFilmsJson(search = "", searchBy = "title", limit = 10) {

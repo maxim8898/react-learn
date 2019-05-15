@@ -1,7 +1,7 @@
-import { connect } from 'react-redux';
-import { SearchInput } from "../components/SearchInput";
-import { changeQuery } from "../actions/changeParamsActions";
-import { fetchFilmsJson } from "../actions/featchActions";
+import {connect} from 'react-redux';
+import SearchInput from '../components/SearchInput';
+import {changeQuery} from '../actions/changeParamsActions';
+import {fetchFilmsJson} from '../actions/featchActions';
 
 const mapStateToProps = (state) => {
   return {
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 };
 
 const mergeProps = (stateProps, dispatchProps) => {
-  const { dispatch } = dispatchProps;
+  const {dispatch} = dispatchProps;
   return {
     ...stateProps,
     onChangeQuery: (query) => {

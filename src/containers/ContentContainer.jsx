@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
-import { Content } from "../components/Content";
-import { fetchFilmById } from "../actions/featchActions";
+import {connect} from 'react-redux';
+import Content from '../components/Content';
+import {fetchFilmById} from '../actions/featchActions';
 
 
 const mapStateToProps = (state) => {

@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
-import { Switcher } from "../components/Switcher";
-import { changeSortBy } from '../actions/changeParamsActions';
+import {connect} from 'react-redux';
+import Switcher from '../components/Switcher';
+import {changeSortBy} from '../actions/changeParamsActions';
 
 const mapStateToProps = (state) => {
   return {
@@ -24,3 +24,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Switcher);
+  

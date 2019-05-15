@@ -1,14 +1,15 @@
-import React from "react";
-import { FilmTile } from "./FilmTile";
+import React from 'react';
+import FilmTile from '../FilmTile';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import styles from './Content.css';
 
-export function Content(props) {
-  const param = props.sort_by === 'rating' ? 'vote_average' : 'release_date';
-  const sorted = props.data.sort((x, y) => { return x[param] > y[param] ? 1 : -1 });
-  return (
+const Content = ({ sort_by, data, onClick }) => {
+  const param = sort_by === 'rating' ? 'vote_average' : 'release_date';
+  const sorted = data.sort((x, y) => { return x[param] > y[param] ? 1 : -1});
+  return(
     sorted.length ?
-      <div className={"content"} key={"content"}>
+      <div className={styles['content']} key={'content'}>
         {
           sorted.map(
             (film, i) =>
@@ -16,7 +17,7 @@ export function Content(props) {
                 to={`/film/${film.id}`}
                 key={i.toString()}
                 onClick={(function () {
-                  props.onClick(film.id)
+                  onClick(film.id)
                 }).bind(this)}>
                 <FilmTile
                   genre={film.genres.join(", ")}
@@ -28,12 +29,14 @@ export function Content(props) {
           )
         }
       </div>
-      : <div className={"content no-films"}>
-        {"No movies found yet, please try other query options."}
+      : <div className={styles['content'] + ' ' + styles['no-films']}>
+        { "No movies found yet, please try other query options." }
       </div>
   )
-}
+};
 
 Content.propTypes = {
-  data: PropTypes.array.isRequired
+    data: PropTypes.array.isRequired
 };
+
+export default Content;

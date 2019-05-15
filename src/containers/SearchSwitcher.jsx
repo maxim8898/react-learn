@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
-import { Switcher } from "../components/Switcher";
-import { changeSearchBy } from "../actions/changeParamsActions";
+import {connect} from 'react-redux';
+import Switcher from '../components/Switcher';
+import {changeSearchBy} from '../actions/changeParamsActions';
 
 const mapStateToProps = (state) => {
   return {

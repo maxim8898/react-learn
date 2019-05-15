@@ -1,0 +1,7 @@
+.checked {
+    background: #EE5766 !important;
+}
+
+.sort-by-block button.checked {
+    color: #EE5766;
+}
