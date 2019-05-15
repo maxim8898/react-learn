@@ -1,7 +1,7 @@
 import React from 'react';
-import { hydrate } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import { createStore, applyMiddleware } from 'redux';
+import {hydrate} from 'react-dom';
+import {BrowserRouter} from 'react-router-dom';
+import {createStore, applyMiddleware} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import app from "./reducers/reducers";
 import './css/base.css';

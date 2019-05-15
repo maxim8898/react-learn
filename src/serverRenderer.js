@@ -1,13 +1,13 @@
 import React from 'react';
-import { renderToString } from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom';
+import {renderToString} from 'react-dom/server';
+import {StaticRouter} from 'react-router-dom';
 import Root from './Root';
-import { createStore, applyMiddleware } from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import app from "./reducers/reducers";
 
 function renderHTML(html, preloadedState) {
-    return `
+  return `
       <!doctype html>
       <html>
         <head>
@@ -27,32 +27,32 @@ function renderHTML(html, preloadedState) {
 }
 
 export default function serverRenderer() {
-    return (req, res) => {
+  return (req, res) => {
 
-        const context = {};
-        const store = createStore(app, {}, applyMiddleware(thunkMiddleware));
+    const context = {};
+    const store = createStore(app, {}, applyMiddleware(thunkMiddleware));
 
-        const renderRoot = () => ( <
-            Root context = { context }
-            location = { req.url }
-            Router = { StaticRouter }
-            store = { store }
-            />
-        );
+    const renderRoot = () => ( <
+        Root context={context}
+             location={req.url}
+             Router={StaticRouter}
+             store={store}
+      />
+    );
 
-        renderToString(renderRoot());
+    renderToString(renderRoot());
 
-        if (context.url) {
-            res.writeHead(302, {
-                Location: context.url,
-            });
-            res.end();
-            return;
-        }
+    if (context.url) {
+      res.writeHead(302, {
+        Location: context.url,
+      });
+      res.end();
+      return;
+    }
 
-        const htmlString = renderToString(renderRoot());
-        const preloadedState = store.getState();
+    const htmlString = renderToString(renderRoot());
+    const preloadedState = store.getState();
 
-        res.send(renderHTML(htmlString, preloadedState));
-    };
+    res.send(renderHTML(htmlString, preloadedState));
+  };
 }

@@ -1,5 +1,5 @@
 {
-    "name": "react-server-side-rendering",
+    "name": "react-two",
     "version": "1.0.0",
     "description": "",
     "main": "server/index.js",
@@ -9,7 +9,7 @@
         "lint": "eslint \"**/*.{js,jsx}\"",
         "prod": "cross-env NODE_ENV=production  node ./server"
     },
-    "author": "Eduard Trutsyk",
+    "author": "Maksim Matuzka",
     "license": "ISC",
     "dependencies": {
         "@hot-loader/react-dom": "^16.8.6",
