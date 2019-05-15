@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 export class FilmBlock extends React.Component{
     constructor(props) {
