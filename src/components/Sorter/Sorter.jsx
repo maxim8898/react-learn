@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import Founded from "../Founded/index";
-import SortSwitcher from "../../containers/SortSwitcher";
+import Founded from '../Founded';
+import SortSwitcher from '../../containers/SortSwitcher';
 
-const Sorter = ({number}) => (
+const Sorter = ({ number }) => (
   <React.Fragment>
-    <Founded number={number}/>
-    <SortSwitcher/>
+    <Founded number={number} />
+    <SortSwitcher />
   </React.Fragment>
 );
 

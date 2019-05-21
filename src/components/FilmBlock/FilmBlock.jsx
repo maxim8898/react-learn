@@ -2,21 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './FilmBlock.css';
 
-class FilmBlock extends React.Component{
-  constructor(props) {
-    super(props)
-  }
-
+class FilmBlock extends React.Component {
   componentDidMount() {
     this.props.fetchFilm(this.props.film_id);
   }
 
   render() {
-    return(
+    return (
       this.props.data ?
         <React.Fragment>
           <div className={styles['film-container']}>
-            <img src={this.props.data.poster_path}/>
+            <img src={this.props.data.poster_path} />
             <div className={styles['film-overview']}>
               <div className={styles['film-title']}>
                 {this.props.data.title}
@@ -34,16 +30,16 @@ class FilmBlock extends React.Component{
               <div className={styles['film-description']}>{this.props.data.overview}</div>
             </div>
           </div>
-          <div className={styles['highlighted']}>
+          <div className={styles.highlighted}>
             Films by <span className="genre">&ensp;{this.props.data.genres[0]}&ensp;</span> genre
           </div>
         </React.Fragment> : <div>Loading...</div>
-    )
-  };
+    );
+  }
 }
 
 FilmBlock.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
 };
 
 export default FilmBlock;

@@ -1,10 +1,10 @@
 import React from 'react';
-import {renderToString} from 'react-dom/server';
-import {StaticRouter} from 'react-router-dom';
-import Root from './Root';
-import {createStore, applyMiddleware} from 'redux';
+import { renderToString } from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import app from "./reducers/reducers";
+import app from './reducers/reducers';
+import Root from './Root';
 
 function renderHTML(html, preloadedState) {
   return `
@@ -28,16 +28,15 @@ function renderHTML(html, preloadedState) {
 
 export default function serverRenderer() {
   return (req, res) => {
-
     const context = {};
     const store = createStore(app, {}, applyMiddleware(thunkMiddleware));
 
-    const renderRoot = () => ( <
-        Root context={context}
-             location={req.url}
-             Router={StaticRouter}
-             store={store}
-      />
+    const renderRoot = () => (<Root
+      context={context}
+      location={req.url}
+      Router={StaticRouter}
+      store={store}
+    />
     );
 
     if (context.url) {

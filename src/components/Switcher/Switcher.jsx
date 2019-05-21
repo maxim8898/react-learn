@@ -3,24 +3,24 @@ import PropTypes from 'prop-types';
 import SwitchButton from '../SwitchButton';
 import styles from './Switcher.css';
 
-const Switcher = (props) => (
+const Switcher = props => (
   <div className={styles[props.containerClass]}>
-    <div className={styles['label']}>{props.label}</div>
+    <div className={styles.label}>{props.label}</div>
     <div className={styles[props.classes]}>
       {
-        props.options.map(function (option, i) {
-          const checked = props.checked === option ? "checked" : "unchecked";
+        props.options.map((option, i) => {
+          const checked = props.checked === option ? 'checked' : 'unchecked';
           return (
             <SwitchButton
               checked={checked}
               key={i.toString()}
               onClick={(function () {
-                props.onSwitch(option)
-              }).bind(this)}
+                props.onSwitch(option);
+              })}
               option={option}
               value={option}
             />
-          )
+          );
         })
       }
     </div>

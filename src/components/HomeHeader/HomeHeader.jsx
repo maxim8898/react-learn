@@ -9,7 +9,7 @@ const HomeHeader = ({ number }) => (
     <div className={styles['search-container']}>
       <SearchBlock />
     </div>
-    <div className={styles['highlighted']}>
+    <div className={styles.highlighted}>
       <Sorter number={number} />
     </div>
   </React.Fragment>

@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './FilmTile.css';
 
-const FilmTile = ({ img, name, year, genre }) => (
+const FilmTile = ({
+  img, name, year, genre,
+}) => (
   <div className={styles['film-tile']}>
-    <img src={img}/>
+    <img src={img} />
     <div className={styles['film-name']}>{name}</div>
     <div className={styles['film-year']}>{year}</div>
     <div className={styles['film-genre']}>{genre}</div>
@@ -18,4 +20,4 @@ FilmTile.propTypes = {
   year: PropTypes.number.isRequired,
 };
 
-export default FilmTile
+export default FilmTile;
