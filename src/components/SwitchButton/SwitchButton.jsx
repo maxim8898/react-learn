@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './SwitchButton.css';
 
 const SwitchButton = props => (
   <button
-    className={styles[props.checked]}
+    className={props.checked}
     onClick={props.onClick}
   >{props.value}
   </button>

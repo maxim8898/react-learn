@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import FilmTile from '../FilmTile';
-import styles from './Content.css';
+import Style from './style';
 
 const Content = ({ sort_by, data, onClick }) => {
   const param = sort_by === 'rating' ? 'vote_average' : 'release_date';
   const sorted = data.sort((x, y) => (x[param] > y[param] ? 1 : -1));
   return (
     sorted.length ?
-      <div className={styles.content} key="content">
+      <Style>
         {
           sorted.map((film, i) =>
               (<NavLink
@@ -25,12 +25,12 @@ const Content = ({ sort_by, data, onClick }) => {
                   name={film.title}
                   year={Number(film.release_date.split('-')[0])}
                 />
-               </NavLink>))
+              </NavLink>))
         }
-      </div>
-      : <div className={`${styles.content} ${styles['no-films']}`}>
-        { 'No movies found yet, please try other query options.' }
-      </div>
+      </Style>
+      : <Style className="no-films">
+          { 'No movies found yet, please try other query options.' }
+        </Style>
   );
 };
 

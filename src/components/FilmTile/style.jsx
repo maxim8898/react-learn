@@ -1,30 +1,31 @@
-.film-tile {
-    margin: 0 10px;
-    cursor: default;
-    text-decoration: none;
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-areas: "img img"
-    "name year"
-    "genre genre";
-}
+import styles from 'styled-components';
 
-.film-tile img {
+export default styles.div`
+  margin: 0 10px;
+  cursor: default;
+  text-decoration: none;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-areas: "img img"
+  "name year"
+  "genre genre";
+    
+  img {
     width: 200px;
     grid-area: img;
     cursor: pointer;
     margin-bottom: 15px;
-}
-
-.film-tile .film-name {
+  }
+  
+  .film-name {
     text-decoration: none;
     grid-area: name;
     text-transform: uppercase;
     font-weight: bold;
     float: left;
-}
-
-.film-tile .film-year {
+  }
+  
+  .film-year {
     grid-area: year;
     float: right;
     font-size: 12px;
@@ -34,11 +35,12 @@
     align-self: center;
     justify-self: center;
     padding: 0 5px;
-}
-
-.film-tile .film-genre {
+  }
+  
+  .film-genre {
     grid-area: genre;
     text-transform: capitalize;
     color: #8c8c8c;
     font-size: 12px;
-}
+  }
+`;

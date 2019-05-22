@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './SearchInput.css';
+import Button from './style';
 
 const SearchInput = props => (
   <React.Fragment>
@@ -10,9 +10,9 @@ const SearchInput = props => (
       type="search"
       value={props.query}
     />
-    <button className={styles['search-submit']} onClick={props.onClickSubmit}>
+    <Button onClick={props.onClickSubmit}>
       Search
-    </button>
+    </Button>
   </React.Fragment>
 );
 

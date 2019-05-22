@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SwitchButton from '../SwitchButton';
-import styles from './Switcher.css';
+import Style from './style';
 
 const Switcher = props => (
-  <div className={styles[props.containerClass]}>
-    <div className={styles.label}>{props.label}</div>
-    <div className={styles[props.classes]}>
+  <Style className={props.containerClass}>
+    <div className="label">{props.label}</div>
+    <div className={props.classes}>
       {
         props.options.map((option, i) => {
           const checked = props.checked === option ? 'checked' : 'unchecked';
@@ -24,7 +24,7 @@ const Switcher = props => (
         })
       }
     </div>
-  </div>
+  </Style>
 );
 
 Switcher.propTypes = {

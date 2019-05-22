@@ -11,6 +11,7 @@ function renderHTML(html, preloadedState) {
       <!doctype html>
       <html>
         <head>
+          <link href="https://fonts.googleapis.com/css?family=Kodchasan:400,500&display=swap" rel="stylesheet">
           <meta charset=utf-8>
           <title>React Server Side Rendering</title>
           ${process.env.NODE_ENV === 'development' ? '' : '<link href="/css/main.css" rel="stylesheet" type="text/css">'}
