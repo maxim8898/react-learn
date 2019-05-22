@@ -40,6 +40,7 @@ class FilmBlock extends React.Component {
 
 FilmBlock.propTypes = {
   data: PropTypes.object.isRequired,
+  fetchFilm: PropTypes.func.isRequired,
 };
 
 export default FilmBlock;
