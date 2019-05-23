@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import ContentContainer from './containers/ContentContainer';
 import HomeHeaderContainer from './containers/HomeHeaderContainer';
 import FilmHeader from './components/FilmHeader';
+import Footer from './css/footer-style';
 
 const Root = ({
   Router, location, context, store,
@@ -22,7 +23,7 @@ const Root = ({
           <Redirect to="/" />
         </Switch>
         <ContentContainer />
-        <div className="footer">netflixroulette</div>
+        <Footer className="footer">netflixroulette</Footer>
       </div>
     </Router>
   </Provider>
