@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { createSelector } from 'reselect';
 import { NavLink } from 'react-router-dom';
 import FilmTile from '../FilmTile';
 import Style from './style';
 
 const Content = ({ sort_by, data, onClick }) => {
   const param = sort_by === 'rating' ? 'vote_average' : 'release_date';
-  const sorted = data.sort((x, y) => (x[param] > y[param] ? 1 : -1));
+  const getfilms = films => films;
+  const sortFilms = createSelector(
+    getfilms,
+    items => items.sort((x, y) => (x[param] > y[param] ? 1 : -1)),
+  );
+  const sorted = sortFilms(data);
   return (
     sorted.length ?
       <Style>
