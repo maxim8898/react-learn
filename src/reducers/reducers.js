@@ -1,9 +1,9 @@
-import {combineReducers} from "redux";
+import { combineReducers } from 'redux';
 import * as reducerConstants from '../constants/reducerConstants';
 
 const initialFinding = {
-  query: "",
-  search_by: "title"
+  query: '',
+  search_by: 'title',
 };
 
 function found(state = {}, action) {
@@ -11,13 +11,13 @@ function found(state = {}, action) {
     case reducerConstants.FETCH_FILMS:
       return {
         ...state,
-        all: action.payload.data
+        all: action.payload.data,
       };
 
     case reducerConstants.FETCH_FILMS_BY_ID:
       return {
         ...state,
-        selected: action.payload
+        selected: action.payload,
       };
 
     default:
@@ -30,12 +30,12 @@ function finding(state = initialFinding, action) {
     case reducerConstants.CHANGE_QUERY:
       return {
         ...state,
-        query: action.payload
+        query: action.payload,
       };
     case reducerConstants.CHANGE_SEARCH_BY:
       return {
         ...state,
-        search_by: action.payload
+        search_by: action.payload,
       };
 
     default:
@@ -44,20 +44,20 @@ function finding(state = initialFinding, action) {
 }
 
 function showing(state = {
-  sort_by: "rating",
-  displayMode: reducerConstants.SEARCH_MODE
+  sort_by: 'rating',
+  displayMode: reducerConstants.SEARCH_MODE,
 }, action) {
   switch (action.type) {
     case reducerConstants.CHANGE_SORT_BY:
       return {
         ...state,
-        sort_by: action.payload
+        sort_by: action.payload,
       };
 
     case reducerConstants.SWITCH_DISPLAY_MODE:
       return {
         ...state,
-        displayMode: action.payload
+        displayMode: action.payload,
       };
     default:
       return state;

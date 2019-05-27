@@ -1,14 +1,14 @@
 import React from 'react';
 import SearchInputContainer from '../../containers/SearchInputContainer';
 import SearchSwitcher from '../../containers/SearchSwitcher';
-import styles from './SearchBlock.css';
+import Style from './style';
 
 const SearchBlock = () => (
-  <div className={styles['search-block']}>
-    <div className={styles['search-block-title']}>Find your movie</div>
+  <Style>
+    <div className="search-block-title">Find your movie</div>
     <SearchInputContainer />
     <SearchSwitcher />
-  </div>
+  </Style>
 );
 
 export default SearchBlock;

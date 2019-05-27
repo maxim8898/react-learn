@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './SearchInput.css';
+import Button from './style';
 
-const SearchInput = (props) => (
+const SearchInput = props => (
   <React.Fragment>
     <input
       onChange={props.onChangeQuery}
       placeholder={props.placeholder}
-      type='search' value={props.query}
+      type="search"
+      value={props.query}
     />
-    <button className={styles['search-submit']} onClick={props.onClickSubmit}>
+    <Button onClick={props.onClickSubmit}>
       Search
-    </button>
+    </Button>
   </React.Fragment>
 );
 

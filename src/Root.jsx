@@ -2,25 +2,28 @@ import 'isomorphic-fetch';
 import 'babel-polyfill';
 import React from 'react';
 import PropTypes from 'prop-types';
-import {hot} from 'react-hot-loader';
-import {Route, Switch, Redirect} from 'react-router-dom';
-import {Provider} from 'react-redux';
+import { hot } from 'react-hot-loader';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import ContentContainer from './containers/ContentContainer';
 import HomeHeaderContainer from './containers/HomeHeaderContainer';
 import FilmHeader from './components/FilmHeader';
+import Footer from './css/footer-style';
 
-const Root = ({Router, location, context, store}) => (
+const Root = ({
+  Router, location, context, store,
+}) => (
   <Provider store={store}>
     <Router location={location} context={context}>
       <div>
         <Switch>
-          <Route exact path="/" component={HomeHeaderContainer}/>
-          <Route path="/film/:film_id" component={FilmHeader}/>
-          <Redirect to="/"/>
+          <Route exact path="/" component={HomeHeaderContainer} />
+          <Route path="/film/:film_id" component={FilmHeader} />
+          <Redirect to="/" />
         </Switch>
-        <ContentContainer/>
-        <div className="footer">netflixroulette</div>
+        <ContentContainer />
+        <Footer className="footer">netflixroulette</Footer>
       </div>
     </Router>
   </Provider>

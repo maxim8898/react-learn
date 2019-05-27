@@ -1,21 +1,17 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import FilmBlock from '../components/FilmBlock';
-import {fetchFilmById} from '../actions/featchActions';
+import { fetchFilmById } from '../actions/featchActions';
 
-const mapStateToProps = (state) => {
-  return {
-    ...state,
-    data: state.found.selected
-  }
-};
+const mapStateToProps = state => ({
+  ...state,
+  data: state.found.selected,
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchFilm: (id) => dispatch(fetchFilmById(id))
-  }
-};
+const mapDispatchToProps = dispatch => ({
+  fetchFilm: id => dispatch(fetchFilmById(id)),
+});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(FilmBlock);

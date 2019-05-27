@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const Founded = ({number}) => (
+const Founded = ({ number }) => (
   <div>
     {number} movies found
   </div>

@@ -1,16 +1,17 @@
 import React from 'react';
-import {renderToString} from 'react-dom/server';
-import {StaticRouter} from 'react-router-dom';
-import Root from './Root';
-import {createStore, applyMiddleware} from 'redux';
+import { renderToString } from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import app from "./reducers/reducers";
+import app from './reducers/reducers';
+import Root from './Root';
 
 function renderHTML(html, preloadedState) {
   return `
       <!doctype html>
       <html>
         <head>
+          <link href="https://fonts.googleapis.com/css?family=Kodchasan:400,500&display=swap" rel="stylesheet">
           <meta charset=utf-8>
           <title>React Server Side Rendering</title>
           ${process.env.NODE_ENV === 'development' ? '' : '<link href="/css/main.css" rel="stylesheet" type="text/css">'}
@@ -28,16 +29,15 @@ function renderHTML(html, preloadedState) {
 
 export default function serverRenderer() {
   return (req, res) => {
-
     const context = {};
     const store = createStore(app, {}, applyMiddleware(thunkMiddleware));
 
-    const renderRoot = () => ( <
-        Root context={context}
-             location={req.url}
-             Router={StaticRouter}
-             store={store}
-      />
+    const renderRoot = () => (<Root
+      context={context}
+      location={req.url}
+      Router={StaticRouter}
+      store={store}
+    />
     );
 
     if (context.url) {
